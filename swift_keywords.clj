@@ -1,0 +1,26 @@
+[
+ {:keyword "deinit"
+  :definition "The `deinit` keyword in Swift is used to define a deinitializer. A deinitializer is called immediately before a class instance is deallocated. It's used to perform any clean-up specific to the class instance, such as releasing resources, closing files, or notifying other objects."
+  :usage "Deinitializers are automatically called. You don't call them yourself. They are written without parentheses and do not take any parameters. A class can have at most one deinitializer."}
+ {:keyword "final"
+  :definition "The `final` keyword in Swift is used to prevent overriding of a class, method, or property. When you mark a class as `final`, it means that class cannot be subclassed. When you mark a method or property as `final`, it means that method or property cannot be overridden by subclasses."
+  :usage "Place the `final` keyword before the `class`, `func`, or `var`/`let` keyword in a declaration. For example: `final class MyClass { ... }`, `final func myMethod() { ... }`, `final var myProperty: String`."}
+ {:keyword "actor"
+  :definition "The `actor` keyword in Swift introduces an actor type, which is a reference type that protects its own mutable state. Actors provide a way to safely manage shared mutable state in a concurrent environment by ensuring that only one task can access an actor's mutable state at a time."
+  :usage "actor MyActor { var count = 0; func increment() { count += 1 } }. To interact with an actor's isolated state from outside the actor, you use `await` to safely call its methods or access its properties."}
+ {:keyword "nonisolated"
+  :definition "The `nonisolated` keyword in Swift is used within an actor to mark properties or methods that are explicitly not part of the actor's isolated state. This means they can be accessed from any task without needing to `await`, but they also do not receive the actor's automatic mutual exclusion protection. They are typically used for immutable state or for types that are themselves thread-safe."
+  :usage "actor MyActor { var isolatedData: Int = 0; nonisolated let id: UUID = UUID() }. The `nonisolated` keyword can be applied to `let` constants, `var` stored properties (if they are immutable after initialization or are `Sendable`), computed properties, and methods."}
+][
+  {:keyword "associativity"
+   :definition "Specifies the order in which operators with the same precedence are evaluated."
+   :usage "Used in custom operator declarations to define how operators with the same precedence group together (left, right, or none). For example, `infix operator +-: AdditionPrecedence` or `associativity left`."}
+
+  {:keyword "didSet"
+   :definition "A property observer that is called immediately after the value of a property is set."
+   :usage "Used within a property declaration to perform actions after a new value has been stored. It provides access to the new value (implicitly named `newValue`) and the old value (if `oldValue` is captured).\n    ```swift\n    var name: String {\n        didSet {\n            print(\"Name changed from \\(oldValue) to \\(name)\")\n        }\n    }\n    ```"}
+
+  {:keyword "extension"
+   :definition "Allows you to add new functionality to an existing class, structure, enumeration, or protocol type, even if you don't own the original source code."
+   :usage "Used to extend types with new computed properties, instance and type methods, initializers, subscripts, and nested types, or to conform a type to a new protocol.\n    ```swift\n    extension Int {\n        func squared() -> Int {\n            return self * self\n        }\n    }\n    let number = 5\n    print(number.squared()) // Output: 25\n    ```"}
+]
